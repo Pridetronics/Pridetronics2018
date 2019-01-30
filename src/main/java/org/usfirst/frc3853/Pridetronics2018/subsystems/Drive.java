@@ -92,7 +92,7 @@ public class Drive extends Subsystem {
     rightValue = rightRamp.applyAsDouble(rightValue);
     leftValue = leftRamp.applyAsDouble(leftValue);
 
-    robotDrive.tankDrive(rightValue, leftValue);
+    robotDrive.tankDrive(leftValue, rightValue);
   }
 
   public double driveSquare(double input, double degree) {
