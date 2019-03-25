@@ -63,7 +63,6 @@ public class Robot extends TimedRobot {
 	private static final int three = 3;
 	private static final int four = 1678;
 	private static final int five = 118;
-	
 
 	private VisionThread visionThread;
 	private double centerX = 0.0;
@@ -103,13 +102,14 @@ public class Robot extends TimedRobot {
 		// constructed yet. Thus, their requires() statements may grab null
 		// pointers. Bad news. Don't move it.
 		oi = new OI();
+		drive.setJoystick(oi.gamepad1, oi.leftJoy, oi.rightJoy);
 
 		// VISION AYYAYAYAYYAA
-		
-		  UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-		  camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
 
-		 /* 
+		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+		camera.setResolution(IMG_WIDTH, IMG_HEIGHT);
+
+		/*
 		 * visionThread = new VisionThread(camera, new GripPipelineTest(), pipeline -> {
 		 * if (!pipeline.filterContoursOutput().isEmpty()) { Rect r =
 		 * Imgproc.boundingRect(pipeline.filterContoursOutput().get(0)); synchronized
@@ -159,46 +159,46 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 
-    // autonomousCommand = new SwitchScoring;
-    // autonomousCommand = new SwitchScoring();
+		// autonomousCommand = new SwitchScoring;
+		// autonomousCommand = new SwitchScoring();
 
-    mode = (int) autoChooser.getSelected();
-    station = (int) autoChooser.getSelected();
-    if (station == 1) {
-      SmartDashboard.putNumber("Station", 1);
-      //autonomousCommand = new SwitchScoring();
-      autonomousCommand = new ScaleScoring();
-    } else if (station == 2) {
-      SmartDashboard.putNumber("Station", 2);
-      autonomousCommand = new Station2Auto();
-      // autonomousCommand = new CenterSwitchScoring();
-    } else if (station == 3) {
-      SmartDashboard.putNumber("Station", 3);
-      autonomousCommand = new SwitchScoringRight();
-    } else if (station == 1678) {
-      SmartDashboard.putNumber("Station", 1678);
-      autonomousCommand = new SwitchScoring118();
-    } else if (station == 118) {
-      SmartDashboard.putNumber("Station", 118);
-      autonomousCommand = new SwitchScoring118();
-    }
+		mode = (int) autoChooser.getSelected();
+		station = (int) autoChooser.getSelected();
+		if (station == 1) {
+			SmartDashboard.putNumber("Station", 1);
+			// autonomousCommand = new SwitchScoring();
+			autonomousCommand = new ScaleScoring();
+		} else if (station == 2) {
+			SmartDashboard.putNumber("Station", 2);
+			autonomousCommand = new Station2Auto();
+			// autonomousCommand = new CenterSwitchScoring();
+		} else if (station == 3) {
+			SmartDashboard.putNumber("Station", 3);
+			autonomousCommand = new SwitchScoringRight();
+		} else if (station == 1678) {
+			SmartDashboard.putNumber("Station", 1678);
+			autonomousCommand = new SwitchScoring118();
+		} else if (station == 118) {
+			SmartDashboard.putNumber("Station", 118);
+			autonomousCommand = new SwitchScoring118();
+		}
 
-    // String position = DriverStation.getInstance().getGameSpecificMessage();
-    // int station = DriverStation.getInstance().getLocation();
-    // if (position.length() > 0) {
-    // if (station == 1) {
-    /*
-     * autonomousCommand = new Station1Auto(position, station); } else if (station
-     * == 2) { autonomousCommand = new Station2Auto(position, station); } else if
-     * (station == 3) { autonomousCommand = new Station3Auto(position, station); }
-     * else { autonomousCommand = null; }
-     */
-    // }
-    // autonomousCommand = new DriveForwardDistance(.6 , 200);
-    // schedule the autonomous command (example)
-    if (autonomousCommand != null)
-      autonomousCommand.start();
-  }
+		// String position = DriverStation.getInstance().getGameSpecificMessage();
+		// int station = DriverStation.getInstance().getLocation();
+		// if (position.length() > 0) {
+		// if (station == 1) {
+		/*
+		 * autonomousCommand = new Station1Auto(position, station); } else if (station
+		 * == 2) { autonomousCommand = new Station2Auto(position, station); } else if
+		 * (station == 3) { autonomousCommand = new Station3Auto(position, station); }
+		 * else { autonomousCommand = null; }
+		 */
+		// }
+		// autonomousCommand = new DriveForwardDistance(.6 , 200);
+		// schedule the autonomous command (example)
+		if (autonomousCommand != null)
+			autonomousCommand.start();
+	}
 
 	/**
 	 * This function is called periodically during autonomous

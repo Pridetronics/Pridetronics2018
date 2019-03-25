@@ -62,7 +62,7 @@ public class driveTeleop extends Command {
   protected void execute() {
     stick = Robot.oi.getgamepad1();
 
-    Robot.drive.doTeleop(stick);
+    Robot.drive.doTeleop();
 
   }
 
