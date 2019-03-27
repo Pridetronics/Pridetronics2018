@@ -117,7 +117,7 @@ public class OI {
     hookBrakeOn = new JoystickButton(leftJoy, 4);
     hookBrakeOn.whileHeld(new hookBrakeOn());
 
-    changeDriveMode = new JoystickButton(gamepad1, 7);
+    changeDriveMode = new JoystickButton(gamepad1, 10);
     changeDriveMode.whenPressed(new SwitchDriveModes());
 
     // Autonomous Commands

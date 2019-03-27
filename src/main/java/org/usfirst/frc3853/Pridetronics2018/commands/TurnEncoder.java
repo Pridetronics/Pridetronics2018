@@ -43,7 +43,7 @@ public class TurnEncoder extends Command {
    } else {
      RobotMap.driverobotDrive.tankDrive(.5, -.5);
    }
-   System.out.println(RobotMap.driveleftDriveMotor.get());
+   System.out.println(RobotMap.leftDriveMotorLead.get());
 
  }
 

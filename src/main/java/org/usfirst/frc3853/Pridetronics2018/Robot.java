@@ -102,8 +102,10 @@ public class Robot extends TimedRobot {
 		// constructed yet. Thus, their requires() statements may grab null
 		// pointers. Bad news. Don't move it.
 		oi = new OI();
-		drive.setJoystick(oi.gamepad1, oi.leftJoy, oi.rightJoy);
+		System.out.println("Initialize OI");
 
+		drive.setJoystick(oi.gamepad1, oi.leftJoy, oi.rightJoy);
+		System.out.println("Initialize Set Joysticks");
 		// VISION AYYAYAYAYYAA
 
 		UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
