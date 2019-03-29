@@ -20,7 +20,7 @@ public class SwitchDriveModes extends InstantCommand {
    */
   public SwitchDriveModes() {
     super();
-    Robot.drive.changeMode();
+   
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -28,6 +28,7 @@ public class SwitchDriveModes extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
+    Robot.drive.changeMode();
   }
 
 }
